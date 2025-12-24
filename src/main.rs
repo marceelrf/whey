@@ -28,15 +28,21 @@ mod commands;
 mod protein;
 mod utils;
 mod cli;
+mod config;
 
 use clap::Parser;
 use cli::{Cli, Commands};
-fn main() {
+use config::load_config;
+fn main() ->  Result<(), Box<dyn std::error::Error>> {
     let cli = Cli::parse();
+
+     let config = load_config()?;
 
     match &cli.command {
         Commands::Decorate { input} => {
-            commands::decorate::run_decorate(input);
+            commands::decorate::run_decorate(input, &config);
         }
     }
+
+    Ok(())
 }

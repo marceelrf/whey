@@ -1,0 +1,10 @@
+[decorate.properties]
+hydrophobic = "yellow"
+positive     = "blue"
+negative     = "red"
+polar        = "green"
+special      = "purple"
+
+[decorate.display]
+line_width = 60
+show_index = true
